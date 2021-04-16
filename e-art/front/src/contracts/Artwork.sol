@@ -7,10 +7,10 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
   string[] public artworks;
   mapping(string => bool) _artworkExists;
 
+  
   constructor() public ERC721("Artwork", "ARTWORK") {
   }
-
-
+  
   function getTokens() public view returns (string [] memory) { return artworks;}
   
   function mint(string memory _artwork) public {

@@ -1,15 +1,18 @@
-
 import React from 'react'
-import Navbar from './Navbar';
-import SecondNavbar from './SecondNavbar';
+import {Link} from 'react-router-dom'
 
-const Layout = ({handlePopup, handleWallet, getTokens}) => {
+const cats = ["New", "Sports", "Music", "Nature", "Movies", "Games"]
+
+const SecondNavbar = () => {
     return (
-        <div className='mb-12 min-w-screen font-mono'>
-            <Navbar getTokens={getTokens} handlePopup={handlePopup} handleWallet={handleWallet} />
-            <SecondNavbar />
+        <div className='bg-red-100 h-16 w-auto shadow-md flex justify-center items-center'>
+            {cats.map((cat, index) => (
+                <Link to='#' key={index} className='mx-8 bg-transparent transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:text-red-700'>
+                   {cat} 
+                </Link>
+            ))}
         </div>
     )
 }
 
-export default Layout
+export default SecondNavbar
