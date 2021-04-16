@@ -1,4 +1,3 @@
-
 // const axios = require('axios');
 // const pinataApiKey = window.env.API_KEY
 // const pinataSecretApiKey = window.env.API_SECRET
@@ -19,3 +18,4 @@
 //         })
 //         .catch(err=>err)
 //     };
+

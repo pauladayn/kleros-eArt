@@ -1,0 +1,4 @@
+window.env = {
+  "API_KEY": "57ecdfed78a90325fe05",
+  "API_SECRET": "8b2dfb5638f06233d9d91283e662c3883f8dffb4bc59324596d70768b20e6d40"
+};
