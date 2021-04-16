@@ -162,9 +162,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": " /**\n *  @authors: [@clesaege]\n *  @reviewers: [@remedcu]\n *  @auditors: []\n *  @bounties: []\n *  @deployments: []\n */\n\npragma solidity ^0.4.15;\n\nimport \"./IArbitrable.sol\";\n\n/** @title Arbitrable\n *  @author Clément Lesaege - <clement@lesaege.com>\n *  Arbitrable abstract contract.\n *  When developing arbitrable contracts, we need to:\n *  -Define the action taken when a ruling is received by the contract. We should do so in executeRuling.\n *  -Allow dispute creation. For this a function must:\n *      -Call arbitrator.createDispute.value(_fee)(_choices,_extraData);\n *      -Create the event Dispute(_arbitrator,_disputeID,_rulingOptions);\n */\ncontract Arbitrable is IArbitrable {\n    Arbitrator public arbitrator;\n    bytes public arbitratorExtraData; // Extra data to require particular dispute and appeal behaviour.\n\n    modifier onlyArbitrator {require(msg.sender == address(arbitrator), \"Can only be called by the arbitrator.\"); _;}\n\n    /** @dev Constructor. Choose the arbitrator.\n     *  @param _arbitrator The arbitrator of the contract.\n     *  @param _arbitratorExtraData Extra data for the arbitrator.\n     */\n    constructor(Arbitrator _arbitrator, bytes _arbitratorExtraData) public {\n        arbitrator = _arbitrator;\n        arbitratorExtraData = _arbitratorExtraData;\n    }\n\n    /** @dev Give a ruling for a dispute. Must be called by the arbitrator.\n     *  The purpose of this function is to ensure that the address calling it has the right to rule on the contract.\n     *  @param _disputeID ID of the dispute in the Arbitrator contract.\n     *  @param _ruling Ruling given by the arbitrator. Note that 0 is reserved for \"Not able/wanting to make a decision\".\n     */\n    function rule(uint _disputeID, uint _ruling) public onlyArbitrator {\n        emit Ruling(Arbitrator(msg.sender),_disputeID,_ruling);\n\n        executeRuling(_disputeID,_ruling);\n    }\n\n\n    /** @dev Execute a ruling of a dispute.\n     *  @param _disputeID ID of the dispute in the Arbitrator contract.\n     *  @param _ruling Ruling given by the arbitrator. Note that 0 is reserved for \"Not able/wanting to make a decision\".\n     */\n    function executeRuling(uint _disputeID, uint _ruling) internal;\n}\n",
-  "sourcePath": "/home/pauladayn/Kleros contracts/contracts/kleros-interaction/contracts/standard/arbitration/Arbitrable.sol",
+  "sourcePath": "/home/pauladayn/React-Escrow/contracts/kleros-interaction/contracts/standard/arbitration/Arbitrable.sol",
   "ast": {
-    "absolutePath": "/home/pauladayn/Kleros contracts/contracts/kleros-interaction/contracts/standard/arbitration/Arbitrable.sol",
+    "absolutePath": "/home/pauladayn/React-Escrow/contracts/kleros-interaction/contracts/standard/arbitration/Arbitrable.sol",
     "exportedSymbols": {
       "Arbitrable": [
         721
@@ -185,7 +185,7 @@
         "src": "120:24:4"
       },
       {
-        "absolutePath": "/home/pauladayn/Kleros contracts/contracts/kleros-interaction/contracts/standard/arbitration/IArbitrable.sol",
+        "absolutePath": "/home/pauladayn/React-Escrow/contracts/kleros-interaction/contracts/standard/arbitration/IArbitrable.sol",
         "file": "./IArbitrable.sol",
         "id": 653,
         "nodeType": "ImportDirective",
@@ -1067,7 +1067,7 @@
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/home/pauladayn/Kleros contracts/contracts/kleros-interaction/contracts/standard/arbitration/Arbitrable.sol",
+      "absolutePath": "/home/pauladayn/React-Escrow/contracts/kleros-interaction/contracts/standard/arbitration/Arbitrable.sol",
       "exportedSymbols": {
         "Arbitrable": [
           721
@@ -1091,7 +1091,7 @@
       {
         "attributes": {
           "SourceUnit": 2657,
-          "absolutePath": "/home/pauladayn/Kleros contracts/contracts/kleros-interaction/contracts/standard/arbitration/IArbitrable.sol",
+          "absolutePath": "/home/pauladayn/React-Escrow/contracts/kleros-interaction/contracts/standard/arbitration/IArbitrable.sol",
           "file": "./IArbitrable.sol",
           "scope": 722,
           "symbolAliases": [
@@ -2063,7 +2063,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-04-16T15:13:02.072Z",
+  "updatedAt": "2021-04-08T17:17:16.534Z",
   "devdoc": {
     "author": "Clément Lesaege - <clement@lesaege.com> Arbitrable abstract contract. When developing arbitrable contracts, we need to: -Define the action taken when a ruling is received by the contract. We should do so in executeRuling. -Allow dispute creation. For this a function must:     -Call arbitrator.createDispute.value(_fee)(_choices,_extraData);     -Create the event Dispute(_arbitrator,_disputeID,_rulingOptions);",
     "methods": {

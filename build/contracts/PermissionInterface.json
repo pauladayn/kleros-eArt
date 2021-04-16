@@ -27,9 +27,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "/**\n *  @title Permission Interface\n *  @author Clément Lesaege - <clement@lesaege.com>\n */\n\npragma solidity ^0.4.15;\n\n/**\n *  @title Permission Interface\n *  This is a permission interface for arbitrary values. The values can be cast to the required types.\n */\ninterface PermissionInterface{\n    /* External */\n\n    /**\n     *  @dev Return true if the value is allowed.\n     *  @param _value The value we want to check.\n     *  @return allowed True if the value is allowed, false otherwise.\n     */\n    function isPermitted(bytes32 _value) external view returns (bool allowed);\n}\n",
-  "sourcePath": "/home/pauladayn/Kleros contracts/contracts/kleros-interaction/contracts/standard/permission/PermissionInterface.sol",
+  "sourcePath": "/home/pauladayn/React-Escrow/contracts/kleros-interaction/contracts/standard/permission/PermissionInterface.sol",
   "ast": {
-    "absolutePath": "/home/pauladayn/Kleros contracts/contracts/kleros-interaction/contracts/standard/permission/PermissionInterface.sol",
+    "absolutePath": "/home/pauladayn/React-Escrow/contracts/kleros-interaction/contracts/standard/permission/PermissionInterface.sol",
     "exportedSymbols": {
       "PermissionInterface": [
         5601
@@ -154,7 +154,7 @@
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/home/pauladayn/Kleros contracts/contracts/kleros-interaction/contracts/standard/permission/PermissionInterface.sol",
+      "absolutePath": "/home/pauladayn/React-Escrow/contracts/kleros-interaction/contracts/standard/permission/PermissionInterface.sol",
       "exportedSymbols": {
         "PermissionInterface": [
           5601
@@ -298,7 +298,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-04-16T15:13:02.273Z",
+  "updatedAt": "2021-04-08T17:17:16.674Z",
   "devdoc": {
     "methods": {
       "isPermitted(bytes32)": {
