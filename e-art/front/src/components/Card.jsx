@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Card = () => {
+const Card = ({data}) => {
     return (
         <>
-            <Link to={'/product/1'}>
+            <Link to={`/product/${data.ipfs_pin_hash}`}>
                 <div className='h-64 
                     text-center 
                     p-12 
@@ -17,7 +17,7 @@ const Card = () => {
                     rounded-sm
                     hover:bg-red-100
                     '>
-                    CARTA
+                    <img src={`https://gateway.pinata.cloud/ipfs/${data.ipfs_pin_hash}`}></img>
                 </div>
             </Link>
         </>

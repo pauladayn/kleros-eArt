@@ -1,11 +1,14 @@
 import { Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Web3 from "web3";
 import Layout from "./components/layout/Layout";
 import SingleView from "./components/SingleView";
 import HomePage from "./components/HomePage";
 import Artwork from "./abis/contracts/Artwork.json";
 import PopupForm from "./components/PopupForm";
+// import getURLsFromPinata from './utils/getURLsFromPinata';
+import {getTokensFromPinata} from './store/nfts';
 
 function App() {
   //va a recibir la data de la cta conectada a MetaMask a través de un pedido asíncrono a la blockchain
@@ -17,12 +20,22 @@ function App() {
   const ethereum = window.ethereum;
   const web3 = new Web3(ethereum);
 
-  useEffect(() => {
-    //  if(localContract) {
-    //  console.log("llega a este if con localContract")
-    //(async() => await mint()) ()
+  const pinata_api_key = window.env.API_KEY
+  const pinata_secret_api_key = window.env.API_SECRET
 
-    // }
+  const [render, setRender] = useState(false)
+  
+  const dispatch = useDispatch()
+  const urls = useSelector(state=>state.nfts)
+  
+  useEffect(()=> {
+    dispatch(getTokensFromPinata({pinata_api_key,pinata_secret_api_key}))
+  },[render])
+
+
+  
+  useEffect(() => {
+ 
 
     (async () => {
       await loadWeb3();
@@ -35,33 +48,27 @@ function App() {
   const getBlockChainData = async () => {
     const accounts = await web3.eth.getAccounts();
     setAccount(accounts[0]);
-    console.log(accounts);
   };
 
   const interactArtwork = async () => {
     const networkId = await web3.eth.net.getId();
-    console.log(networkId, "networkID");
     const deployedNetwork = Artwork.networks[networkId];
     const abi = Artwork.abi;
     const artworkInstance = new web3.eth.Contract(abi, deployedNetwork.address);
-    //  console.log(artworkInstance, "ADENTRO DE INTERACT");
     setLocalContract(artworkInstance);
    
   };
 
-  console.log(localContract, "lo llamo acá afuera y existe");
+  function reRender () {
+    setRender(state=>!state)
+  }
 
 
   const mint = async () => {
-    console.log(accounts);
-    console.log(localContract, "ADENTRO DE MINTTTTT");
- 
- 
      // if (localContract) {
       const receipt = await localContract.methods
         .mint("1")
         .send({ from: accounts });
-      console.log(receipt, "RECEIPTTTTTTT WTF");
       return receipt;
     
     //} 
@@ -70,7 +77,6 @@ function App() {
   const loadWeb3 = async () => {
     if (ethereum) {
       await window.ethereum.enable();
-      console.log("carga web3");
     } else if (web3) {
       web3 = new Web3(window.web3.currentProvider);
     } else {
@@ -86,20 +92,23 @@ function App() {
 
   return (
     <div className="bg-secondary w-auto min-h-full pb-20">
-      <Layout handlePopup={handlePopup} /* handleWallet={handleWallet}  */ />
+      <Layout  handlePopup={handlePopup} /* handleWallet={handleWallet}  */ />
       {popup ? (
         <PopupForm
+          pinata_api_key={pinata_api_key}
+          pinata_secret_api_key={pinata_secret_api_key}
           mint={mint}
+          reRender={reRender}
           walletAccount={accounts}
           handlePopup={handlePopup}
         />
       ) : null}
       <Switch>
         <Route
-          path="/product/:id"
-          render={({ match }) => <SingleView id={match.params.id} />}
+          path="/product/:hash"
+          render={({ match }) => <SingleView hash={match.params.hash} />}
         />
-        <Route path="/" exact render={() => <HomePage /* mint={mint} */ />} />
+        <Route path="/" exact render={() => <HomePage />} />
       </Switch>
     </div>
   );
