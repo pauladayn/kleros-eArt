@@ -1,0 +1,62 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .test {
+      flex-shrink: 0;
+      width: 17rem;
+      margin: 2rem 2rem 2rem 0;
+    }
+  
+    .bg-primary {
+        background-color: #F47BB6;
+    }
+
+    .border-primary {
+        border-color: #F47BB6;
+    }
+    
+    .text-primary {
+        color: #F47BB6;
+    }
+
+    .bg-secondary {
+        background-color: #F5F5F5;
+    }
+
+    .border-secondary {
+        border-color: #F5F5F5;
+    }
+    
+    .text-secondary {
+        color: #F5F5F5;
+    }
+
+    .single-card {
+        height: 30rem;
+    }
+
+    .myshadow {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 1)
+     }
+
+    .myshadow2 {
+        box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.5)
+    }    
+
+    .popup {
+        height: 25rem;
+    }
+}
+
+
+p {
+    background-color: transparent;
+}
+
+div {
+    background-color: transparent;
+}
+

@@ -1,0 +1,317 @@
+{
+  "contractName": "PermissionInterface",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_value",
+          "type": "bytes32"
+        }
+      ],
+      "name": "isPermitted",
+      "outputs": [
+        {
+          "name": "allowed",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "/**\n *  @title Permission Interface\n *  @author Clément Lesaege - <clement@lesaege.com>\n */\n\npragma solidity ^0.4.15;\n\n/**\n *  @title Permission Interface\n *  This is a permission interface for arbitrary values. The values can be cast to the required types.\n */\ninterface PermissionInterface{\n    /* External */\n\n    /**\n     *  @dev Return true if the value is allowed.\n     *  @param _value The value we want to check.\n     *  @return allowed True if the value is allowed, false otherwise.\n     */\n    function isPermitted(bytes32 _value) external view returns (bool allowed);\n}\n",
+  "sourcePath": "/home/pauladayn/Kleros contracts/contracts/kleros-interaction/contracts/standard/permission/PermissionInterface.sol",
+  "ast": {
+    "absolutePath": "/home/pauladayn/Kleros contracts/contracts/kleros-interaction/contracts/standard/permission/PermissionInterface.sol",
+    "exportedSymbols": {
+      "PermissionInterface": [
+        5601
+      ]
+    },
+    "id": 5602,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5593,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".15"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "94:24:12"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": " @title Permission Interface\n This is a permission interface for arbitrary values. The values can be cast to the required types.",
+        "fullyImplemented": false,
+        "id": 5601,
+        "linearizedBaseContracts": [
+          5601
+        ],
+        "name": "PermissionInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": " @dev Return true if the value is allowed.\n @param _value The value we want to check.\n @return allowed True if the value is allowed, false otherwise.",
+            "id": 5600,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "isPermitted",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5596,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5595,
+                  "name": "_value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5600,
+                  "src": "526:14:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5594,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "526:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "525:16:12"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 5599,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5598,
+                  "name": "allowed",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5600,
+                  "src": "565:12:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 5597,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "565:4:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "564:14:12"
+            },
+            "scope": 5601,
+            "src": "505:74:12",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 5602,
+        "src": "263:318:12"
+      }
+    ],
+    "src": "94:488:12"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/pauladayn/Kleros contracts/contracts/kleros-interaction/contracts/standard/permission/PermissionInterface.sol",
+      "exportedSymbols": {
+        "PermissionInterface": [
+          5601
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".15"
+          ]
+        },
+        "id": 5593,
+        "name": "PragmaDirective",
+        "src": "94:24:12"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": " @title Permission Interface\n This is a permission interface for arbitrary values. The values can be cast to the required types.",
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            5601
+          ],
+          "name": "PermissionInterface",
+          "scope": 5602
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "constant": true,
+              "documentation": " @dev Return true if the value is allowed.\n @param _value The value we want to check.\n @return allowed True if the value is allowed, false otherwise.",
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "isPermitted",
+              "payable": false,
+              "scope": 5601,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_value",
+                      "scope": 5600,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 5594,
+                        "name": "ElementaryTypeName",
+                        "src": "526:7:12"
+                      }
+                    ],
+                    "id": 5595,
+                    "name": "VariableDeclaration",
+                    "src": "526:14:12"
+                  }
+                ],
+                "id": 5596,
+                "name": "ParameterList",
+                "src": "525:16:12"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "allowed",
+                      "scope": 5600,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 5597,
+                        "name": "ElementaryTypeName",
+                        "src": "565:4:12"
+                      }
+                    ],
+                    "id": 5598,
+                    "name": "VariableDeclaration",
+                    "src": "565:12:12"
+                  }
+                ],
+                "id": 5599,
+                "name": "ParameterList",
+                "src": "564:14:12"
+              }
+            ],
+            "id": 5600,
+            "name": "FunctionDefinition",
+            "src": "505:74:12"
+          }
+        ],
+        "id": 5601,
+        "name": "ContractDefinition",
+        "src": "263:318:12"
+      }
+    ],
+    "id": 5602,
+    "name": "SourceUnit",
+    "src": "94:488:12"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.25+commit.59dbf8f1.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-04-16T15:13:02.273Z",
+  "devdoc": {
+    "methods": {
+      "isPermitted(bytes32)": {
+        "details": "Return true if the value is allowed.",
+        "params": {
+          "_value": "The value we want to check."
+        },
+        "return": "allowed True if the value is allowed, false otherwise."
+      }
+    },
+    "title": "Permission Interface This is a permission interface for arbitrary values. The values can be cast to the required types."
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
